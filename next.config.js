@@ -2,9 +2,6 @@
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-    experimental: {
-      appDir: true, // This enables the App Router (new directory-based routing)
-    },
-  };
-  
+};
+
 module.exports = nextConfig;
