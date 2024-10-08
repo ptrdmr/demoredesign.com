@@ -36,11 +36,11 @@ useEffect(() => {
 
 const portfolioItems = [
   { name: "MORITRAC", url: "https://www.moritrac.com", image: "/moritrac-screenshot.jpg" },
-  { name: "Concourse Bowling", url: "https://www.concoursebowling.com", image: "/placeholder.svg?height=300&width=400" },
-  { name: "Project 3", url: "#", image: "/placeholder.svg?height=300&width=400" },
-  { name: "Project 4", url: "#", image: "/placeholder.svg?height=300&width=400" },
-  { name: "Project 5", url: "#", image: "/placeholder.svg?height=300&width=400" },
-  { name: "Project 6", url: "#", image: "/placeholder.svg?height=300&width=400" },
+  { name: "Concourse Bowling", url: "https://www.concoursebowling.com", image: "/concourse-screenshot.jpg" },
+  // { name: "Project 3", url: "#", image: "/placeholder.svg?height=300&width=400" },
+  // { name: "Project 4", url: "#", image: "/placeholder.svg?height=300&width=400" },
+  // { name: "Project 5", url: "#", image: "/placeholder.svg?height=300&width=400" },
+  // { name: "Project 6", url: "#", image: "/placeholder.svg?height=300&width=400" },
 ]
 
 const handleNavClick = (section: string) => {
@@ -253,19 +253,18 @@ return (
 
       <section id="portfolio" className="py-20 px-4 md:px-6 bg-black bg-opacity-90">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Our Portfolio</h2>
-        <div className="container mx-auto grid md:grid-cols-3 gap-8 max-w-6xl">
+        <div className="container mx-auto grid md:grid-cols-2 gap-8 max-w-6xl">
           {portfolioItems.map((item, index) => (
             <div 
               key={index} 
               className="group relative h-64 bg-green-900 bg-opacity-50 rounded-lg overflow-hidden cursor-pointer"
-              style={{transform: `perspective(1000px) rotateY(${(scrollY % 360) / 2}deg)`}}
             >
               <Image
                 src={item.image}
                 alt={item.name}
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-300 group-hover:scale-110"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="transition-transform duration-300 group-hover:scale-110 object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-white text-lg font-semibold hover:underline">
