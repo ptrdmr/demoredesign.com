@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 // Comment out or remove the problematic imports for now
@@ -56,14 +56,16 @@ const handleNavClick = (section: string) => {
   setMobileMenuOpen(false)
 }
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()
-  const form = e.target as HTMLFormElement;
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+  
   try {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form) as any).toString()
+      body: new URLSearchParams(formData as any).toString()
     })
     if (response.ok) {
       alert('Form submitted successfully!')
