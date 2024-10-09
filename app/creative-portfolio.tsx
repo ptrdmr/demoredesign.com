@@ -208,8 +208,8 @@ return (
         <ChevronDown className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce" size={32} />
       </section>
 
-      <section id="services" className="py-20 px-4 md:px-6 bg-green-900 bg-opacity-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Our Services</h2>
+      <section id="services" className="py-20 px-4 md:px-6 bg-black">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">Our Services</h2>
         <div className="container mx-auto grid md:grid-cols-3 gap-8 max-w-6xl">
           {[
             { 
@@ -259,27 +259,21 @@ return (
               ]
             }
           ].map((service, index) => (
-            <Card key={index} className="bg-black bg-opacity-50 border-green-600 hover:border-green-400 transition-all duration-300 transform hover:scale-105 flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-green-300 text-2xl">{service.title}</CardTitle>
-                <CardDescription className="text-gray-300">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="text-gray-200 flex-grow">
-                <p className="text-4xl font-bold mb-4 text-white">{service.price}</p>
-                <ul className="list-none space-y-2">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center">
-                      <span className="text-green-400 mr-2">✓</span> {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter className="mt-auto">
-                <Button className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
-                  {index === 2 ? "Request Quote" : "Get Started"}
-                </Button>
-              </CardFooter>
-            </Card>
+            <div key={index} className="bg-black border border-green-500 rounded-lg p-6 flex flex-col transition-all duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20 hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-2 text-green-400">{service.title}</h3>
+              <p className="text-gray-400 mb-4">{service.description}</p>
+              <p className="text-4xl font-bold mb-6 text-white">{service.price}</p>
+              <ul className="space-y-2 mb-6 flex-grow">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-center text-gray-300">
+                    <span className="text-green-400 mr-2">✓</span> {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+                {index === 2 ? "Request Quote" : "Get Started"}
+              </button>
+            </div>
           ))}
         </div>
       </section>
