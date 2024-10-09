@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, FormEvent } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 // Comment out or remove the problematic imports for now
@@ -65,7 +65,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString()
+      body: new URLSearchParams(formData as FormData).toString()
     });
     if (response.ok) {
       alert('Form submitted successfully!');
