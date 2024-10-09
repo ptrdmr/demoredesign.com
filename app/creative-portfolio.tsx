@@ -14,6 +14,11 @@ export default function Component() {
 const [scrollY, setScrollY] = useState(0)
 const [activeSection, setActiveSection] = useState('hero')
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+const [formState, setFormState] = useState({
+  name: '',
+  email: '',
+  message: '',
+})
 
 useEffect(() => {
   const handleScroll = () => setScrollY(window.scrollY)
@@ -49,6 +54,32 @@ const handleNavClick = (section: string) => {
     element.scrollIntoView({ behavior: 'smooth' })
   }
   setMobileMenuOpen(false)
+}
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+  try {
+    const response = await fetch('/api/form', {
+      method: 'POST',
+      body: JSON.stringify(formState),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      alert('Form submitted successfully!')
+      setFormState({ name: '', email: '', message: '' })
+    } else {
+      alert('Form submission failed. Please try again.')
+    }
+  } catch (error) {
+    console.error('Error:', error)
+    alert('An error occurred. Please try again.')
+  }
+}
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  setFormState({ ...formState, [e.target.name]: e.target.value })
 }
 
 return (
@@ -276,32 +307,16 @@ return (
         </div>
       </section>
 
-      <section id="contact" 
-        className="py-20 px-4 md:px-6 bg-gradient-to-t from-green-900/20 to-black"
-      >
+      <section id="contact" className="py-20 px-4 md:px-6 bg-gradient-to-t from-green-900/20 to-black">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Contact Us</h2>
         <div className="max-w-2xl mx-auto">
-          <form 
-            name="contact" 
-            method="POST" 
-            data-netlify="true" 
-            netlify-honeypot="bot-field" 
-            className="space-y-6"
-          >
-            {/* Hidden input for Netlify */}
-            <input type="hidden" name="form-name" value="contact" />
-            
-            {/* Honeypot field to prevent spam */}
-            <p className="hidden">
-              <label>
-                Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
-              </label>
-            </p>
-
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
               <Input 
                 type="text" 
                 name="name"
+                value={formState.name}
+                onChange={handleChange}
                 placeholder="Your Name" 
                 className="bg-black bg-opacity-50 border-green-600 text-white pl-10 focus:border-green-400 transition-all duration-300" 
                 required
@@ -312,6 +327,8 @@ return (
               <Input 
                 type="email" 
                 name="email"
+                value={formState.email}
+                onChange={handleChange}
                 placeholder="Your Email" 
                 className="bg-black bg-opacity-50 border-green-600 text-white pl-10 focus:border-green-400 transition-all duration-300" 
                 required
@@ -321,6 +338,8 @@ return (
             <div className="relative">
               <Textarea 
                 name="message"
+                value={formState.message}
+                onChange={handleChange}
                 placeholder="Your Message" 
                 className="bg-black bg-opacity-50 border-green-600 text-white pl-10  focus:border-green-400 transition-all duration-300" 
                 required
