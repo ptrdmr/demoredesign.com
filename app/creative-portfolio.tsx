@@ -56,33 +56,28 @@ const handleNavClick = (section: string) => {
   setMobileMenuOpen(false)
 }
 
-const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault()
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
   const form = e.currentTarget;
   const formData = new FormData(form);
-  
-  const formDataObject: Record<string, string> = {};
-  formData.forEach((value, key) => {
-    formDataObject[key] = value.toString();
-  });
-  
+
   try {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formDataObject).toString()
-    })
+      body: new URLSearchParams(formData as any).toString()
+    });
     if (response.ok) {
-      alert('Form submitted successfully!')
-      setFormState({ name: '', email: '', message: '' })
+      alert('Form submitted successfully!');
+      setFormState({ name: '', email: '', message: '' });
     } else {
-      alert('Form submission failed. Please try again.')
+      alert('Form submission failed. Please try again.');
     }
   } catch (error) {
-    console.error('Error:', error)
-    alert('An error occurred. Please try again.')
+    console.error('Error:', error);
+    alert('An error occurred. Please try again.');
   }
-}
+};
 
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
