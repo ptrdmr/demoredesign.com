@@ -61,11 +61,16 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   const form = e.currentTarget;
   const formData = new FormData(form);
   
+  const formDataObject: Record<string, string> = {};
+  formData.forEach((value, key) => {
+    formDataObject[key] = value.toString();
+  });
+  
   try {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString()
+      body: new URLSearchParams(formDataObject).toString()
     })
     if (response.ok) {
       alert('Form submitted successfully!')
@@ -78,6 +83,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     alert('An error occurred. Please try again.')
   }
 }
+
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   setFormState({ ...formState, [e.target.name]: e.target.value })
