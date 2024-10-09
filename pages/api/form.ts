@@ -1,15 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 
 export const config = {
   runtime: 'edge',
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextRequest) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' })
+    return NextResponse.json({ message: 'Method Not Allowed' }, { status: 405 })
   }
 
   const body = await req.json()
@@ -24,8 +22,8 @@ export default async function handler(
   })
 
   if (!response.ok) {
-    return res.status(500).json({ message: 'Error submitting to Netlify' })
+    return NextResponse.json({ message: 'Error submitting to Netlify' }, { status: 500 })
   }
 
-  return res.status(200).json({ message: 'Form submitted successfully' })
+  return NextResponse.json({ message: 'Form submitted successfully' })
 }
