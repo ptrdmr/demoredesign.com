@@ -65,7 +65,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as FormData).toString()
+      body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
     });
     if (response.ok) {
       alert('Form submitted successfully!');
