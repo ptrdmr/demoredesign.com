@@ -281,29 +281,50 @@ return (
       >
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Contact Us</h2>
         <div className="max-w-2xl mx-auto">
-          <form className="space-y-6">
+          <form 
+            name="contact" 
+            method="POST" 
+            data-netlify="true" 
+            netlify-honeypot="bot-field" 
+            className="space-y-6"
+          >
+            {/* Hidden input for Netlify */}
+            <input type="hidden" name="form-name" value="contact" />
+            
+            {/* Honeypot field to prevent spam */}
+            <p className="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
+
             <div className="relative">
               <Input 
                 type="text" 
+                name="name"
                 placeholder="Your Name" 
                 className="bg-black bg-opacity-50 border-green-600 text-white pl-10 focus:border-green-400 transition-all duration-300" 
+                required
               />
               <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-400" size={18} />
             </div>
             <div className="relative">
               <Input 
                 type="email" 
+                name="email"
                 placeholder="Your Email" 
                 className="bg-black bg-opacity-50 border-green-600 text-white pl-10 focus:border-green-400 transition-all duration-300" 
+                required
               />
               <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2  text-green-400" size={18} />
             </div>
-            <div  className="relative">
+            <div className="relative">
               <Textarea 
+                name="message"
                 placeholder="Your Message" 
                 className="bg-black bg-opacity-50 border-green-600 text-white pl-10  focus:border-green-400 transition-all duration-300" 
+                required
               />
-              
               <Mail className="absolute left-3 top-6 transform -translate-y-1/2 text-green-400" size={18} />
             </div>
             <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-3 rounded-full transition-all duration-300 transform hover:scale-105">
