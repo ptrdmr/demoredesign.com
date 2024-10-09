@@ -56,16 +56,14 @@ const handleNavClick = (section: string) => {
   setMobileMenuOpen(false)
 }
 
-const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault()
+  const form = e.target as HTMLFormElement;
   try {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        'form-name': 'contact',
-        ...formState
-      }).toString()
+      body: new URLSearchParams(new FormData(form) as any).toString()
     })
     if (response.ok) {
       alert('Form submitted successfully!')
@@ -311,15 +309,13 @@ return (
       <section id="contact" className="py-20 px-4 md:px-6 bg-gradient-to-t from-green-900/20 to-black">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Contact Us</h2>
         <div className="max-w-2xl mx-auto">
-          {/* Hidden static form for Netlify */}
-          <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <textarea name="message"></textarea>
-          </form>
-
-          {/* Visible React form */}
-          <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="contact">
+          <form 
+            name="contact" 
+            method="POST" 
+            data-netlify="true"
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
             <input type="hidden" name="form-name" value="contact" />
             <div className="relative">
               <Input 
