@@ -198,10 +198,18 @@ return (
         ></div>
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Web Design Solutions
+            Web with Focus
           </h1>
-          <p className="text-lg md:text-xl mb-6 opacity-75 max-w-2xl mx-auto">Crafting powerful digital experiences for businesses of all sizes</p>
-          <Button className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-3 rounded-full transition-transform hover:scale-110">
+          <p className="text-lg md:text-xl mb-6 opacity-75 max-w-2xl mx-auto">Design that reflects your brand and business.</p>
+          <Button 
+            className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-3 rounded-full transition-transform hover:scale-110"
+            onClick={() => {
+              const servicesSection = document.getElementById('services');
+              if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Elevate Your Online Presence
           </Button>
         </div>
