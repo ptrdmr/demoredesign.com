@@ -270,7 +270,15 @@ return (
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+              <button 
+                onClick={() => {
+                  const contactForm = document.getElementById('contact');
+                  if (contactForm) {
+                    contactForm.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+              >
                 {index === 2 ? "Request Quote" : "Get Started"}
               </button>
             </div>
