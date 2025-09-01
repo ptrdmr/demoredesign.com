@@ -42,6 +42,7 @@ useEffect(() => {
 const portfolioItems = [
   { name: "MORITRAC", url: "https://www.moritrac.com", image: "/moritrac-screenshot.jpg" },
   { name: "Concourse Bowling", url: "https://www.concoursebowling.com", image: "/concourse-screenshot.jpg" },
+  { name: "Sierra Club - LA Water History", url: "https://lawaterhistory.com/", image: "/sierra_club.jpg" },
   // { name: "Project 3", url: "#", image: "/placeholder.svg?height=300&width=400" },
   // { name: "Project 4", url: "#", image: "/placeholder.svg?height=300&width=400" },
   // { name: "Project 5", url: "#", image: "/placeholder.svg?height=300&width=400" },
