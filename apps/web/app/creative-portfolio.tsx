@@ -5,7 +5,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 // Comment out or remove the problematic imports for now
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Briefcase, Code, Mail, Phone, ChevronDown, Menu, X } from "lucide-react"
