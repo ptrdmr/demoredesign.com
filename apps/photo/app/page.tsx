@@ -1,7 +1,7 @@
 import { Play, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import fs from "fs";
 import path from "path";
+import Gallery from "./components/Gallery";
 
 // This runs on the server at build time or request time
 async function getPortfolioImages() {
@@ -59,41 +59,7 @@ export default async function PhotoHome() {
       {/* Recent Work Section */}
       <section id="portfolio" className="py-20 px-4 md:px-8 max-w-[1800px] mx-auto border-t border-zinc-900/50">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-16 uppercase tracking-tighter">Recent Work</h2>
-        
-        {photos.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {photos.map((photo) => (
-              <div 
-                key={photo.id} 
-                className={`relative group overflow-hidden bg-zinc-900 cursor-pointer ${photo.isTall ? 'aspect-[3/4] md:row-span-2' : 'aspect-[4/3]'}`}
-              >
-                <Image 
-                  src={photo.src} 
-                  alt={photo.title} 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/60 group-hover:scale-105 transition-transform duration-700"></div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
-                <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                  <h3 className="text-xl font-display font-bold uppercase">{photo.title}</h3>
-                  <p className="text-xs text-zinc-300 tracking-widest mt-1">{photo.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20 text-zinc-500">
-            <p className="mb-4">No photos found in public/portfolio.</p>
-            <p className="text-sm">Add images to apps/photo/public/portfolio to see them here.</p>
-            {/* Fallback grid just for design visualization if empty */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 opacity-50 pointer-events-none">
-               <div className="aspect-[4/3] bg-zinc-900 border border-zinc-800 flex items-center justify-center">Example 1</div>
-               <div className="aspect-[3/4] bg-zinc-900 border border-zinc-800 flex items-center justify-center md:row-span-2">Example 2 (Tall)</div>
-               <div className="aspect-[4/3] bg-zinc-900 border border-zinc-800 flex items-center justify-center">Example 3</div>
-            </div>
-          </div>
-        )}
+        <Gallery photos={photos} />
       </section>
 
 
