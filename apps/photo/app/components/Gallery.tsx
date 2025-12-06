@@ -93,12 +93,14 @@ export default function Gallery({ photos }: GalleryProps) {
             <Image 
               src={photo.src} 
               alt={photo.title} 
-              fill 
-              className="object-cover group-hover:scale-105 transition-transform duration-700" 
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/60 group-hover:scale-105 transition-transform duration-700"></div>
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
-            <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+            {/* Optimization: Only show gradients if needed, or use simple opacity instead of gradients if perf is bad */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/60 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
               <h3 className="text-xl font-display font-bold uppercase">{photo.title}</h3>
               <p className="text-xs text-zinc-300 tracking-widest mt-1">{photo.category}</p>
             </div>
@@ -145,7 +147,8 @@ export default function Gallery({ photos }: GalleryProps) {
                 <Image 
                 src={selectedPhoto.src} 
                 alt={selectedPhoto.title} 
-                fill 
+                fill
+                sizes="100vw"
                 className="object-contain"
                 priority
                 />
@@ -162,4 +165,3 @@ export default function Gallery({ photos }: GalleryProps) {
     </>
   );
 }
-
