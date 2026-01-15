@@ -64,7 +64,8 @@ export default function GitHubReadme({ content, repoUrl, repoDisplayName }: GitH
             rehypePlugins={[rehypeRaw]}
             components={{
               // Make images responsive and handle relative paths
-              img: ({ src, alt, ...props }) => {
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              img: ({ src, alt, ref, ...props }) => {
                 // If it's a relative path, we can't render it (would need base URL)
                 if (src && !src.startsWith('http')) {
                   return (
@@ -84,7 +85,8 @@ export default function GitHubReadme({ content, repoUrl, repoDisplayName }: GitH
                 );
               },
               // Make links open in new tab
-              a: ({ href, children, ...props }) => (
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              a: ({ href, children, ref, ...props }) => (
                 <a 
                   href={href} 
                   target="_blank" 
