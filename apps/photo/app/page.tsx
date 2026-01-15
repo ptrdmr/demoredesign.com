@@ -45,7 +45,7 @@ export default async function PhotoHome() {
       <section className="min-h-[90vh] flex flex-col items-center justify-center px-4 text-center relative">
         <div className="max-w-5xl mx-auto z-10">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display uppercase leading-[0.9] tracking-tighter mb-12">
-            Hello, I'm <span className="text-white">Demore Design</span>, <span className="text-zinc-500">Visual Storyteller</span>, Creative Director & <span className="text-zinc-500">Artist</span> Based In <span className="text-white">The Digital Realm</span>.
+            Hello, I'm <span className="text-green-400">Peter DeMore</span>, <span className="text-zinc-500">Visual Storyteller</span>, Creative Director & <span className="text-zinc-500">Artist</span> Based In <span className="text-green-400">The Digital Realm</span>.
           </h1>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
