@@ -1,7 +1,7 @@
 'use client';
 
 import { ProjectType, ProjectFilters } from '../types/project';
-import { Github, BarChart2, PieChart, BookOpen, Folder, Filter, X } from 'lucide-react';
+import { Github, BarChart2, PieChart, BookOpen, Folder, LayoutDashboard, Filter, X } from 'lucide-react';
 
 interface FilterBarProps {
   filters: ProjectFilters;
@@ -15,6 +15,7 @@ const typeOptions: { value: ProjectType | 'all'; label: string; icon: React.Reac
   { value: 'tableau', label: 'Tableau', icon: <BarChart2 className="w-4 h-4" /> },
   { value: 'powerbi', label: 'Power BI', icon: <PieChart className="w-4 h-4" /> },
   { value: 'jupyter', label: 'Notebooks', icon: <BookOpen className="w-4 h-4" /> },
+  { value: 'react-dashboard', label: 'Dashboards', icon: <LayoutDashboard className="w-4 h-4" /> },
   { value: 'other', label: 'Other', icon: <Folder className="w-4 h-4" /> },
 ];
 

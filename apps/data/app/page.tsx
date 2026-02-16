@@ -38,6 +38,7 @@ export default function DataPortfolio() {
       tableau: 0,
       powerbi: 0,
       jupyter: 0,
+      'react-dashboard': 0,
       other: 0,
     };
 

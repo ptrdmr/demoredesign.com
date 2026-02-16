@@ -4,7 +4,7 @@
  * This type system is extensible - add new ProjectType values as needed.
  */
 
-export type ProjectType = 'github' | 'tableau' | 'powerbi' | 'jupyter' | 'other';
+export type ProjectType = 'github' | 'tableau' | 'powerbi' | 'jupyter' | 'react-dashboard' | 'other';
 
 export type ProjectStatus = 'published' | 'featured' | 'wip';
 
@@ -18,7 +18,8 @@ export type DomainTag =
   | 'Analytics'
   | 'OCR/Document Processing'
   | 'Backend Development'
-  | 'Visualization';
+  | 'Visualization'
+  | 'Food & Beverage';
 
 export type ToolTag =
   | 'Python'
@@ -34,7 +35,10 @@ export type ToolTag =
   | 'React'
   | 'Next.js'
   | 'Excel'
-  | 'R';
+  | 'R'
+  | 'Recharts'
+  | 'TypeScript'
+  | 'Tailwind CSS';
 
 export interface Project {
   /** Unique URL-safe identifier */
@@ -105,6 +109,7 @@ export function getProjectTypeIcon(type: ProjectType): string {
     tableau: 'bar-chart-2',
     powerbi: 'pie-chart',
     jupyter: 'book-open',
+    'react-dashboard': 'layout-dashboard',
     other: 'folder',
   };
   return icons[type];
@@ -117,6 +122,7 @@ export function getProjectTypeLabel(type: ProjectType): string {
     tableau: 'Tableau',
     powerbi: 'Power BI',
     jupyter: 'Notebook',
+    'react-dashboard': 'Interactive Dashboard',
     other: 'Project',
   };
   return labels[type];

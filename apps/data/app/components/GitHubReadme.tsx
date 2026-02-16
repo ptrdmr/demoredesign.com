@@ -64,8 +64,8 @@ export default function GitHubReadme({ content, repoUrl, repoDisplayName }: GitH
             rehypePlugins={[rehypeRaw]}
             components={{
               // Make images responsive and handle relative paths
-              img: ({ src, alt, ...props }) => {
-                // If it's a relative path, we can't render it (would need base URL)
+              img: ({ src, alt, ref: _ref, ...props }) => {
+                void _ref;
                 if (src && !src.startsWith('http')) {
                   return (
                     <span className="inline-flex items-center gap-2 text-gray-500 text-sm italic">
@@ -84,16 +84,19 @@ export default function GitHubReadme({ content, repoUrl, repoDisplayName }: GitH
                 );
               },
               // Make links open in new tab
-              a: ({ href, children, ...props }) => (
-                <a 
-                  href={href} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  {...props}
-                >
-                  {children}
-                </a>
-              ),
+              a: ({ href, children, ref: _ref, ...props }) => {
+                void _ref;
+                return (
+                  <a 
+                    href={href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    {...props}
+                  >
+                    {children}
+                  </a>
+                );
+              },
             }}
           >
             {content}
