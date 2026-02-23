@@ -35,7 +35,7 @@ export const projects: Project[] = [
     domainTags: ['Healthcare', 'AI/ML', 'Backend Development', 'OCR/Document Processing'],
     toolTags: ['Django', 'Python', 'PostgreSQL', 'OCR', 'LLM', 'Celery'],
     thumbnail: '/projects/placeholder-medical.jpg',
-    repoUrl: 'https://github.com/ptrdmr/django_doc',
+    repoUrl: 'https://github.com/ptrdmr/django_doc/README.md',
     problemStatement: 'Healthcare organizations needed a secure, compliant way to extract structured medical data from documents at scale while maintaining HIPAA compliance.',
     approach: 'Built a complete Django platform featuring AI-powered document analysis with Claude/GPT extraction, FHIR R4 integration for standardized medical records, optimistic concurrency merge system, and comprehensive HIPAA audit logging.',
     outcome: 'Production-ready medical data extraction with 70-80% auto-approval rates, <200ms processing overhead, and complete audit trails. Implemented enterprise FHIR merge logic with 280+ unit tests.',
