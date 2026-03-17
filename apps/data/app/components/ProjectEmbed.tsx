@@ -54,7 +54,7 @@ export default function ProjectEmbed({ project }: ProjectEmbedProps) {
         className={`
           relative rounded-xl overflow-hidden border border-gray-800 bg-gray-900
           transition-all duration-300
-          ${isFullscreen ? 'fixed inset-4 z-50' : 'aspect-video'}
+          ${isFullscreen ? 'fixed inset-4 z-50' : 'h-[75vh] min-h-[500px]'}
         `}
       >
         {/* Loading state */}

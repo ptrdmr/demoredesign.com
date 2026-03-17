@@ -20,6 +20,8 @@ export const projects: Project[] = [
     domainTags: ['Food & Beverage', 'Analytics', 'Reporting', 'Visualization'],
     toolTags: ['React', 'Next.js', 'TypeScript', 'Recharts', 'Tailwind CSS'],
     thumbnail: 'https://i.imgur.com/e7TJUv6.png',
+    embedUrl: 'https://concourseanalytics.netlify.app/',
+    liveUrl: 'https://concourseanalytics.netlify.app/',
     problemStatement: 'The venue\'s food & beverage operation generates thousands of transactions weekly across a large menu, but leadership lacked a consolidated view of what was selling, what was underperforming, and how revenue trended over time.',
     approach: 'Extracted 19 weeks of POS transaction data and built an interactive dashboard with KPI metrics, revenue & volume rankings, weekly trend analysis, category breakdowns, and a sortable/filterable product detail table.',
     outcome: 'A fully interactive dashboard surfacing actionable insights: top 10 items drive 56% of revenue, December holiday traffic produced a $28.9K peak week, and 15 low-volume items may warrant menu consolidation.',
