@@ -20,8 +20,35 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes easter-egg-drop {
+  0% {
+    transform: translateY(calc(-100% - 12px));
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  72% {
+    transform: translateY(24px);
+  }
+  86% {
+    transform: translateY(-12px);
+  }
+  94% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animate-easter-egg-drop {
+    animation: easter-egg-drop 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
