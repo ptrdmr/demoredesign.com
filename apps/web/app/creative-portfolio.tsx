@@ -144,15 +144,10 @@ export default function Component() {
     const formData = new FormData(form)
 
     try {
-      const params = new URLSearchParams()
-      for (const [key, value] of formData.entries()) {
-        params.append(key, value.toString())
-      }
-
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString(),
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       })
       if (response.ok) {
         setFormState(INITIAL_FORM_STATE)
