@@ -1,3 +1,14 @@
 [build]
   command = "npm run build"
   publish = "out"
+
+# Next.js strips trailing slashes: /sample/ -> /sample (404). Serve the static index.
+[[redirects]]
+  from = "/sample"
+  to = "/sample/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/sample/"
+  to = "/sample/index.html"
+  status = 200

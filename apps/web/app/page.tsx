@@ -1,5 +1,5 @@
-import CreativePortfolio from './creative-portfolio';
+import GroupRevenueHome from './creative-portfolio';
 
 export default function Home() {
-  return <CreativePortfolio />;
+  return <GroupRevenueHome />;
 }

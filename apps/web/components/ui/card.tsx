@@ -1,48 +1,75 @@
 import React from 'react'
 
-export const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className, ...props }) => {
+export const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <div className={`bg-white rounded-lg shadow-md ${className}`} {...props}>
+    <div
+      className={`rounded-sm border border-rule bg-surface ${className}`}
+      {...props}
+    >
       {children}
     </div>
   )
 }
 
-export const CardHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className, ...props }) => {
+export const CardHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <div className={`p-4 ${className}`} {...props}>
+    <div className={`p-6 ${className}`} {...props}>
       {children}
     </div>
   )
 }
 
-export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({ children, className, ...props }) => {
+export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <h3 className={`text-lg font-semibold ${className}`} {...props}>
+    <h3 className={`font-display text-sub-heading text-ink ${className}`} {...props}>
       {children}
     </h3>
   )
 }
 
-export const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({ children, className, ...props }) => {
+export const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <p className={`text-sm text-gray-600 ${className}`} {...props}>
+    <p className={`text-sm text-ink-muted ${className}`} {...props}>
       {children}
     </p>
   )
 }
 
-export const CardContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className, ...props }) => {
+export const CardContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <div className={`p-4 ${className}`} {...props}>
+    <div className={`p-6 pt-0 ${className}`} {...props}>
       {children}
     </div>
   )
 }
 
-export const CardFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className, ...props }) => {
+export const CardFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <div className={`p-4 border-t ${className}`} {...props}>
+    <div className={`border-t border-rule p-6 ${className}`} {...props}>
       {children}
     </div>
   )

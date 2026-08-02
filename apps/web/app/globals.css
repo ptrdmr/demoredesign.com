@@ -3,52 +3,88 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fbf8f3;
+  --paper-alt: #f5f0e8;
+  --surface: #ffffff;
+  --ink: #17150f;
+  --ink-muted: #5c5850;
+  --ink-soft: #6e685d;
+  --rule: #e3dcd0;
+  --rule-strong: #cfc5b4;
+  --accent: #a03e2f;
+  --accent-deep: #7c2e22;
+  --accent-soft: #f7ece8;
+  --data: #2f5d62;
+  --data-soft: #e8f1f1;
+  --focus: #1f5fbf;
+  --radius: 3px;
+  --radius-sm: 2px;
+  --shadow-card: 0 1px 2px rgba(23, 21, 15, 0.04), 0 8px 24px -12px rgba(23, 21, 15, 0.1);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Semantic aliases for components */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --muted: var(--ink-muted);
+  --border: var(--rule);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
 }
 
-@keyframes easter-egg-drop {
-  0% {
-    transform: translateY(calc(-100% - 12px));
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
     opacity: 0;
   }
-  55% {
-    transform: translateY(0);
+  to {
     opacity: 1;
-  }
-  72% {
-    transform: translateY(24px);
-  }
-  86% {
-    transform: translateY(-12px);
-  }
-  94% {
-    transform: translateY(4px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .animate-fade-up {
+    animation: fade-up 0.5s var(--ease) forwards;
   }
 
-  .animate-easter-egg-drop {
-    animation: easter-egg-drop 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  .animate-fade-in {
+    animation: fade-in 0.5s var(--ease) forwards;
   }
 }
