@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { projects, getProjectBySlug } from '../../data/projects';
 import { getProjectTypeLabel } from '../../types/project';
 import { fetchGitHubReadme, getRepoDisplayName } from '../../lib/github';
+import { hasCaseStudy, CaseStudyBody } from '../../case-studies';
 import ProjectDetailClient from './ProjectDetailClient';
 import GitHubReadme from '../../components/GitHubReadme';
 import { 
@@ -47,11 +48,13 @@ export default async function ProjectPage({ params }: PageProps) {
     notFound();
   }
 
-  // Fetch README for GitHub projects
+  const showCaseStudy = hasCaseStudy(slug);
+
+  // Fetch README only for generic GitHub projects — case studies own their narrative
   let readmeContent: string | null = null;
   let repoDisplayName: string = '';
   
-  if (project.type === 'github' && project.repoUrl) {
+  if (!showCaseStudy && project.type === 'github' && project.repoUrl) {
     readmeContent = await fetchGitHubReadme(project.repoUrl);
     repoDisplayName = getRepoDisplayName(project.repoUrl);
   }
@@ -127,7 +130,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full 
                           bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm">
             <Tag className="w-4 h-4" />
-            {getProjectTypeLabel(project.type)}
+            {showCaseStudy ? 'Case Study' : getProjectTypeLabel(project.type)}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
@@ -176,7 +179,11 @@ export default async function ProjectPage({ params }: PageProps) {
       </header>
 
       {/* Content */}
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className={`${showCaseStudy ? 'max-w-6xl' : 'max-w-5xl'} mx-auto px-6 py-12`}>
+        {showCaseStudy ? (
+          <CaseStudyBody slug={slug} />
+        ) : (
+          <>
         {/* Embedded dashboard (for Tableau/Power BI) */}
         {project.embedUrl && (
           <section className="mb-16">
@@ -329,6 +336,8 @@ export default async function ProjectPage({ params }: PageProps) {
             </div>
           </aside>
         </div>
+          </>
+        )}
       </main>
 
       {/* Footer */}

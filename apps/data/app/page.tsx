@@ -39,6 +39,7 @@ export default function DataPortfolio() {
       powerbi: 0,
       jupyter: 0,
       'react-dashboard': 0,
+      'case-study': 0,
       other: 0,
     };
 

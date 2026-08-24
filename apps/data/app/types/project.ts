@@ -4,7 +4,7 @@
  * This type system is extensible - add new ProjectType values as needed.
  */
 
-export type ProjectType = 'github' | 'tableau' | 'powerbi' | 'jupyter' | 'react-dashboard' | 'other';
+export type ProjectType = 'github' | 'tableau' | 'powerbi' | 'jupyter' | 'react-dashboard' | 'case-study' | 'other';
 
 export type ProjectStatus = 'published' | 'featured' | 'wip';
 
@@ -110,6 +110,7 @@ export function getProjectTypeIcon(type: ProjectType): string {
     powerbi: 'pie-chart',
     jupyter: 'book-open',
     'react-dashboard': 'layout-dashboard',
+    'case-study': 'file-text',
     other: 'folder',
   };
   return icons[type];
@@ -123,6 +124,7 @@ export function getProjectTypeLabel(type: ProjectType): string {
     powerbi: 'Power BI',
     jupyter: 'Notebook',
     'react-dashboard': 'Interactive Dashboard',
+    'case-study': 'Case Study',
     other: 'Project',
   };
   return labels[type];

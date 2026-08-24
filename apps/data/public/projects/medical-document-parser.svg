@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#022c22"/>
+      <stop offset="0.55" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#083344"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0l8 4-8 4z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="140" cy="80" r="160" fill="#10b981" fill-opacity="0.08"/>
+  <circle cx="680" cy="380" r="180" fill="#22d3ee" fill-opacity="0.07"/>
+
+  <rect x="90" y="95" width="150" height="200" rx="10" fill="#111" stroke="#6b7280" stroke-width="2"/>
+  <path d="M112 130h106M112 156h90M112 182h100M112 208h78M112 234h96" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
+  <path d="M112 260h70" stroke="#6b7280" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+
+  <path d="M270 195h70" stroke="#10b981" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="360" y="108" width="120" height="56" rx="8" fill="#022c22" stroke="#10b981" stroke-width="2"/>
+  <rect x="500" y="108" width="120" height="56" rx="8" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+  <rect x="360" y="184" width="120" height="56" rx="8" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+  <rect x="500" y="184" width="120" height="56" rx="8" fill="#022c22" stroke="#10b981" stroke-width="2"/>
+  <text x="392" y="142" fill="#6ee7b7" font-family="ui-monospace, monospace" font-size="18">Cnd</text>
+  <text x="532" y="142" fill="#67e8f9" font-family="ui-monospace, monospace" font-size="18">Med</text>
+  <text x="392" y="218" fill="#67e8f9" font-family="ui-monospace, monospace" font-size="18">Obs</text>
+  <text x="532" y="218" fill="#6ee7b7" font-family="ui-monospace, monospace" font-size="18">Enc</text>
+
+  <rect x="360" y="268" width="260" height="44" rx="8" fill="#111" stroke="#374151" stroke-width="2"/>
+  <rect x="376" y="280" width="16" height="20" rx="2" stroke="#e5e7eb" stroke-width="1.5"/>
+  <path d="M380 280v-4a4 4 0 018 0v4" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="404" y="296" fill="#9ca3af" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16">PHI encrypted</text>
+</svg>

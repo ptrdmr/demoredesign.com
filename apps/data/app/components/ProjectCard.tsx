@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Project, getProjectTypeLabel } from '../types/project';
-import { Github, BarChart2, PieChart, BookOpen, Folder, LayoutDashboard, ArrowUpRight, Star } from 'lucide-react';
+import { Github, BarChart2, PieChart, BookOpen, Folder, LayoutDashboard, FileText, ArrowUpRight, Star } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -14,6 +14,7 @@ const typeIcons: Record<string, React.ReactNode> = {
   powerbi: <PieChart className="w-4 h-4" />,
   jupyter: <BookOpen className="w-4 h-4" />,
   'react-dashboard': <LayoutDashboard className="w-4 h-4" />,
+  'case-study': <FileText className="w-4 h-4" />,
   other: <Folder className="w-4 h-4" />,
 };
 
@@ -23,6 +24,7 @@ const typeColors: Record<string, { bg: string; border: string; text: string }> =
   powerbi: { bg: 'bg-amber-950/50', border: 'border-amber-800/50', text: 'text-amber-300' },
   jupyter: { bg: 'bg-orange-950/50', border: 'border-orange-800/50', text: 'text-orange-300' },
   'react-dashboard': { bg: 'bg-emerald-950/50', border: 'border-emerald-800/50', text: 'text-emerald-300' },
+  'case-study': { bg: 'bg-emerald-950/50', border: 'border-emerald-800/50', text: 'text-emerald-300' },
   other: { bg: 'bg-purple-950/50', border: 'border-purple-800/50', text: 'text-purple-300' },
 };
 
